@@ -31,13 +31,11 @@ const compareHands = (userHand, compHand) => {
         case ((userHand === paper) && (compHand === rock)):
         case ((userHand === scissors) && (compHand === paper)):
             winner = 'user';
-            roundCount += 1;
             break;
         case ((userHand === rock) && (compHand === paper)):
         case ((userHand === paper) && (compHand === scissors)):
         case ((userHand === scissors) && (compHand === rock)):
             winner = 'computer';
-            roundCount += 1;
             break;
         default:
             return 'draw';
@@ -45,19 +43,20 @@ const compareHands = (userHand, compHand) => {
 
     return winner;
 };
+const getHumanChoice = () => prompt("Enter rock, paper or scissors: ");
+const playRound = () => {
+    const humanSelection = getHumanChoice();
+    const computerSelection = generateHand();
 
-const gameRound = () => {
-    const userHand = prompt("Enter rock, paper or scissors: ");
-    if (validateUserInput(userHand) === `invalid`) {
+    if (validateUserInput(humanSelection) === `invalid`) {
         console.log('Invalid hand. Please enter "rock", "paper" or "scissors".');
         return;
     }
-    const compHand = generateHand();
-    const winner = compareHands(userHand, compHand); 
+    const winner = compareHands(humanSelection, computerSelection); 
     return winner;
 }
 
-const rockPaperScissors = () => {
+const playGame = () => {
     console.log('Welcome to Rock Paper Scissors game!');
     const userName = prompt('What is your name: ');
     console.log(`Hello, ${userName}!`);
@@ -65,8 +64,8 @@ const rockPaperScissors = () => {
     let userScore = 0;
     let computerScore = 0;
     let rounds = 1;
-    while (rounds <= 3) {
-        const result = gameRound();
+    while (rounds <= 5) {
+        const result = playRound();
         if (result === 'computer') {
             computerScore += 1;
             rounds += 1;
@@ -97,5 +96,5 @@ const rockPaperScissors = () => {
     return;
 };
 
-rockPaperScissors();
+playGame();
     
