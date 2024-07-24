@@ -1,24 +1,16 @@
-//
-// get user name
-// accept user input and store it in name constant variable 
-// output greeting of the user by name
-// output rules of the game to the user
-// IF number of rounds is > 3 THEN stop the game and output the winner name and score ELSE continue
-// start round 
-// get randomized computer gesture stored in a variable currentCompAnswer 
-// accept user input and store it in currentUserAnswer variable
-// validate THEN normalize user input stored in currentUserAnswer 
-// IF user input validated THEN compare against currentCompAnswer 
-// IF draw THEN start new round
-// IF user wins THEN output win response THEN start new round 
-// IF user loses THEN output lose responce THEN start new round 
-// 
-let roundCount = 0; // round counting variable to be later stored inside the main function, max is 3 round.  
-const [rock, paper, scissors] = ['rock', 'paper', 'scissors'];
+const prompt = require("prompt-sync")({ sigint: true });
 
-// const getCompHand = () => {
-//     const 
-// }
+const validHands = ['rock', 'paper', 'scissors'];
+const [rock, paper, scissors] = validHands; // global variable for ease of reference and comparison 
+
+const generateHand = () => {
+    function getRandomIntInclusive(min, max) {
+        const minCeiled = Math.ceil(min);
+        const maxFloored = Math.floor(max);
+        return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
+    };
+    return validHands[getRandomIntInclusive(0,2)];
+}
 
 const validateUserInput = (userInput) => {
     const lowerCaseInput = userInput.toLowerCase();
@@ -31,20 +23,9 @@ const validateUserInput = (userInput) => {
     return 'valid';
 }
 
-console.log('Testing user input validation - case of invalid input');
-console.log(validateUserInput('fist'));
-console.log('Testing user input validation - case of valid input');
-console.log(validateUserInput('paper'));
-
 const compareHands = (userHand, compHand) => {
 
     let winner = '';
-    if (userHand === compHand) {
-        roundCount += 1;
-        console.log(`DRAW!
-        Starting next round!`);
-        return 'draw';
-    } 
 
     switch (true) {
         case ((userHand === rock) && (compHand === scissors)):
@@ -59,27 +40,63 @@ const compareHands = (userHand, compHand) => {
             winner = 'computer';
             roundCount += 1;
             break;
+        default:
+            return 'draw';
     }
 
-    return `Winner: ${winner}!`;
+    return winner;
 };
-console.log('Testing hand comparison function - case of identical hands');
-console.log(compareHands('rock', 'rock'));
 
-console.log('Testing hand comparison function - case of user win');
-console.log(compareHands('rock', 'scissors'));
+const gameRound = () => {
+    const userHand = prompt("Enter rock, paper or scissors: ");
+    if (validateUserInput(userHand) === `invalid`) {
+        console.log('Invalid hand. Please enter "rock", "paper" or "scissors".');
+        return;
+    }
+    const compHand = generateHand();
+    const winner = compareHands(userHand, compHand); 
+    return winner;
+}
 
-console.log('Testing hand comparison function - case of computer win');
-console.log(compareHands('paper', 'scissors'));
+const rockPaperScissors = () => {
+    console.log('Welcome to Rock Paper Scissors game!');
+    const userName = prompt('What is your name: ');
+    console.log(`Hello, ${userName}!`);
+    console.log('This game will consist of three rounds. Lets start!');
+    let userScore = 0;
+    let computerScore = 0;
+    let rounds = 1;
+    while (rounds <= 3) {
+        const result = gameRound();
+        if (result === 'computer') {
+            computerScore += 1;
+            rounds += 1;
+        }
+        if (result === 'user') {
+            userScore += 1;
+            rounds += 1;
+        }
+        if (result === 'draw') {
+            rounds += 1;
+        }
+        if (result === 'draw') {
+            console.log('Draw!');
+        }
+        console.log (`User: ${userScore}, Computer: ${computerScore}`);
+    }
 
+    console.log (`User: ${userScore}, Computer: ${computerScore}`);
+    if (userScore === computerScore) {
+        console.log('The game ends with DRAW!');
+        return;
+    }
+    if (userScore > computerScore) {
+        console.log ('You win!');
+        return;
+    }
+    console.log('You lost!');
+    return;
+};
 
-// COMBINATIONS 
-// ROCK vs SCISSORS - ROCK WIN 
-// ROCK vs PAPER - ROCK LOSE  
-// ROCK vs ROCK - DRAW
-// SCISSORS vs ROCK - SCISSORS LOSE
-// SCISSORS vs PAPER - SCISSORS WIN 
-// SCISSORS vs SCISSORS - DRAW
-// PAPER vs ROCK - PAPER WINS
-// PAPER vs SCISSORS - PAPER LOSE
-// PAPER VS PAPER - DRAW
+rockPaperScissors();
+    
