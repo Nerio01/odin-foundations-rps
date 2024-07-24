@@ -1,7 +1,7 @@
 const prompt = require("prompt-sync")({ sigint: true });
 
 const validHands = ['rock', 'paper', 'scissors'];
-const [rock, paper, scissors] = validHands; // global variable for ease of reference and comparison 
+const [rock, paper, scissors] = validHands; 
 
 const generateHand = () => {
     function getRandomIntInclusive(min, max) {
@@ -18,7 +18,6 @@ const validateUserInput = (userInput) => {
     && lowerCaseInput !== paper 
     && lowerCaseInput !== scissors) {
         return 'invalid';
-        // here we should restart the round without changing roundCount value - UPDATE - NVM not required as this will be done inside the main function
     }
     return 'valid';
 }
