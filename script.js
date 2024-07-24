@@ -1,5 +1,3 @@
-const prompt = require("prompt-sync")({ sigint: true });
-
 const validHands = ['rock', 'paper', 'scissors'];
 const [rock, paper, scissors] = validHands; 
 
