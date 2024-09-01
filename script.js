@@ -1,6 +1,13 @@
 const validHands = ['rock', 'paper', 'scissors'];
 const [rock, paper, scissors] = validHands; 
 
+const [rockBtn, paperBtn, scissorsBtn] = Array.from(document.querySelectorAll("button"));
+
+rockBtn.addEventListener("click", () => playRound(rock));
+paperBtn.addEventListener("click", () => playRound(paper));
+scissorsBtn.addEventListener("click", () => playRound(scissors));
+
+
 const generateHand = () => {
     function getRandomIntInclusive(min, max) {
         const minCeiled = Math.ceil(min);
@@ -41,9 +48,9 @@ const compareHands = (userHand, compHand) => {
 
     return winner;
 };
-const getHumanChoice = () => prompt("Enter rock, paper or scissors: ");
-const playRound = () => {
-    const humanSelection = getHumanChoice();
+//const getHumanChoice = () => prompt("Enter rock, paper or scissors: ");
+const playRound = (userhand) => {
+    const humanSelection = userhand;
     const computerSelection = generateHand();
 
     if (validateUserInput(humanSelection) === `invalid`) {
@@ -51,48 +58,50 @@ const playRound = () => {
         return;
     }
     const winner = compareHands(humanSelection, computerSelection); 
+    const output = document.querySelector('.output');
+    output.textContent = winner;
     return winner;
 }
 
-const playGame = () => {
-    console.log('Welcome to Rock Paper Scissors game!');
-    const userName = prompt('What is your name: ');
-    console.log(`Hello, ${userName}!`);
-    console.log('This game will consist of three rounds. Lets start!');
-    let userScore = 0;
-    let computerScore = 0;
-    let rounds = 1;
-    while (rounds <= 5) {
-        const result = playRound();
-        if (result === 'computer') {
-            computerScore += 1;
-            rounds += 1;
-        }
-        if (result === 'user') {
-            userScore += 1;
-            rounds += 1;
-        }
-        if (result === 'draw') {
-            rounds += 1;
-        }
-        if (result === 'draw') {
-            console.log('Draw!');
-        }
-        console.log (`User: ${userScore}, Computer: ${computerScore}`);
-    }
 
-    console.log (`User: ${userScore}, Computer: ${computerScore}`);
-    if (userScore === computerScore) {
-        console.log('The game ends with DRAW!');
-        return;
-    }
-    if (userScore > computerScore) {
-        console.log ('You win!');
-        return;
-    }
-    console.log('You lost!');
-    return;
-};
-
-//playGame();
+//const playGame = () => {
+//    console.log('Welcome to Rock Paper Scissors game!');
+//    const userName = prompt('What is your name: ');
+//    console.log(`Hello, ${userName}!`);
+//    console.log('This game will consist of three rounds. Lets start!');
+//    let userScore = 0;
+//    let computerScore = 0;
+//    let rounds = 1;
+//    while (rounds <= 5) {
+//        const result = playRound();
+//        if (result === 'computer') {
+//            computerScore += 1;
+//            rounds += 1;
+//        }
+//        if (result === 'user') {
+//            userScore += 1;
+//            rounds += 1;
+//        }
+//        if (result === 'draw') {
+//            rounds += 1;
+//        }
+//        if (result === 'draw') {
+//            console.log('Draw!');
+//        }
+//        console.log (`User: ${userScore}, Computer: ${computerScore}`);
+//    }
+//
+//    console.log (`User: ${userScore}, Computer: ${computerScore}`);
+//    if (userScore === computerScore) {
+//        console.log('The game ends with DRAW!');
+//        return;
+//    }
+//    if (userScore > computerScore) {
+//        console.log ('You win!');
+//        return;
+//    }
+//    console.log('You lost!');
+//    return;
+//};
+//
     
