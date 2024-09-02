@@ -45,16 +45,27 @@ button {
   background-color: blue;
 }
 
-.output {
-  background-color: rgba(155,55,255,0.6);
-  width: 400px;
-  height: 150px;
+.result-container {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  align-items: center; 
+  background-color: gray;
+  height: 6rem;
+  width: 40rem;
   align-self: center;
   border-radius: 25px;
-  text-align: center;
-  align-content: center;
-  font-size: 25px;
   color: whitesmoke;
+}
+
+.player-score,
+.computer-score {
+  color: lightgreen;
+}
+
+.winner {
+  font-size: 25px;
+  color: lightgreen;
   font-weight: 800;
 }
 
