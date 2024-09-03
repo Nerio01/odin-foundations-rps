@@ -65,13 +65,43 @@ const updateBoardScore = () => {
   computerScore.textContent = currentScore.computer;
 }
 
+const finalWinnerDiv = document.createElement("div");
+finalWinnerDiv.style.height = '50px';
+finalWinnerDiv.style.width = '200px';
+finalWinnerDiv.style.borderRadius = '25px';
+finalWinnerDiv.style.color = 'lightgreen';
+finalWinnerDiv.style.backgroundColor = 'red';
+finalWinnerDiv.style.alignSelf = 'center';
+finalWinnerDiv.style.visibility = 'hidden';
+finalWinnerDiv.style.textAlign = 'center';
+const optionsDiv = document.querySelector(".options");
+console.log(optionsDiv);
+optionsDiv.before(finalWinnerDiv);
+
+const results = document.querySelector('.result-container');
+
+const resetAfterVictory = () => {
+  if (currentScore.player >= 5 || currentScore.computer >= 5) {
+    resetScore();
+    finalWinnerDiv.style.visibility = 'hidden';
+  }
+}
+
 const playRound = (userhand) => {
+    resetAfterVictory();
     const humanSelection = userhand;
     const computerSelection = generateHand();
     const roundWinner = compareHands(humanSelection, computerSelection); 
     const output = document.querySelector('.winner');
     updateScore(roundWinner);
-    console.log(currentScore);
+    if (currentScore.player >= 5) {
+      finalWinnerDiv.textContent = 'Player Won The Game!';
+      finalWinnerDiv.style.visibility = 'visible'
+    }
+    if (currentScore.computer >= 5) {
+      finalWinnerDiv.textContent = 'Computer Won The Game!';
+      finalWinnerDiv.style.visibility = 'visible'
+    }
     updateBoardScore();
     output.textContent = roundWinner;
     return roundWinner;
