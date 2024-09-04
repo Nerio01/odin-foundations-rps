@@ -5,47 +5,29 @@ const [rockBtn, paperBtn, scissorsBtn] = Array.from(document.querySelectorAll("b
 const resultContainer = document.querySelector('.result-container');
 
 rockBtn.addEventListener("click", () => playRound(rock));
-rockBtn.addEventListener("mousedown", () => { 
-  rockBtn.style.border = 'solid 1px white';
-  rockBtn.style.color = 'whitesmoke';
-});
-rockBtn.addEventListener("mouseup", () => {
-  rockBtn.style.border = 'solid 1px lightgreen';
-  rockBtn.style.color = 'lightgreen';
-});
-
 paperBtn.addEventListener("click", () => playRound(paper));
-paperBtn.addEventListener("mousedown", () => { 
-  paperBtn.style.border = 'solid 1px white';
-  paperBtn.style.color = 'whitesmoke';
-});
-paperBtn.addEventListener("mouseup", () => {
-  paperBtn.style.border = 'solid 1px lightgreen';
-  paperBtn.style.color = 'lightgreen';
-});
-
 scissorsBtn.addEventListener("click", () => playRound(scissors));
-scissorsBtn.addEventListener("mousedown", () => { 
-  scissorsBtn.style.border = 'solid 1px white';
-  scissorsBtn.style.color = 'whitesmoke';
-});
-scissorsBtn.addEventListener("mouseup", () => {
-  scissorsBtn.style.border = 'solid 1px lightgreen';
-  scissorsBtn.style.color = 'lightgreen';
-});
 
 const buttons = Array.from(document.querySelectorAll('button'));
 
 buttons.forEach((button) => {
-  button.addEventListener("mousedown", () => resultContainer.style.border = '1px solid lightgreen');
-  button.addEventListener("mouseup", () => resultContainer.style.border = '1px solid whitesmoke');
+  button.addEventListener("mousedown", () => {
+    resultContainer.style.border = '1px solid lightgreen';
+    button.style.border = 'solid 1px white';
+    button.style.color = 'whitesmoke';
+  });
+  button.addEventListener("mouseup", () => {
+    resultContainer.style.border = '1px solid whitesmoke';
+    button.style.border = 'solid 1px lightgreen';
+    button.style.color = 'lightgreen';
+  });
   button.addEventListener("mouseover", () => { 
-  button.style.border = 'solid 1px lightgreen';
-  button.style.color = 'lightgreen';
+    button.style.border = 'solid 1px lightgreen';
+    button.style.color = 'lightgreen';
   });
   button.addEventListener("mouseout", () => {
-  button.style.border = 'solid 1px white';
-  button.style.color = 'white';
+    button.style.border = 'solid 1px white';
+    button.style.color = 'white';
   });
 });
 
@@ -56,7 +38,7 @@ const generateHand = () => {
         return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
     };
     return validHands[getRandomIntInclusive(0,2)];
-}
+};
 
 const compareHands = (userHand, compHand) => {
 
@@ -107,6 +89,8 @@ const updateBoardScore = () => {
 }
 
 const finalWinnerDiv = document.createElement("div");
+finalWinnerDiv.classList.add('added');
+console.log(finalWinnerDiv);
 finalWinnerDiv.style.height = '100px';
 finalWinnerDiv.style.width = '400px';
 finalWinnerDiv.style.borderRadius = '25px';
@@ -118,6 +102,7 @@ finalWinnerDiv.style.fontSize = '30px';
 finalWinnerDiv.style.display = 'flex';
 finalWinnerDiv.style.justifyContent = 'center';
 finalWinnerDiv.style.alignItems = 'center';
+
 const optionsDiv = document.querySelector(".options");
 optionsDiv.before(finalWinnerDiv);
 
@@ -150,5 +135,3 @@ const playRound = (userhand) => {
     return roundWinner;
 }
 
-
-   
