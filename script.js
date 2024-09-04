@@ -34,7 +34,6 @@ scissorsBtn.addEventListener("mouseup", () => {
   scissorsBtn.style.color = 'lightgreen';
 });
 
-
 const buttons = Array.from(document.querySelectorAll('button'));
 
 buttons.forEach((button) => {
