@@ -66,14 +66,17 @@ const updateBoardScore = () => {
 }
 
 const finalWinnerDiv = document.createElement("div");
-finalWinnerDiv.style.height = '50px';
-finalWinnerDiv.style.width = '200px';
+finalWinnerDiv.style.height = '100px';
+finalWinnerDiv.style.width = '400px';
 finalWinnerDiv.style.borderRadius = '25px';
 finalWinnerDiv.style.color = 'lightgreen';
 finalWinnerDiv.style.backgroundColor = 'red';
 finalWinnerDiv.style.alignSelf = 'center';
 finalWinnerDiv.style.visibility = 'hidden';
-finalWinnerDiv.style.textAlign = 'center';
+finalWinnerDiv.style.fontSize = '30px';
+finalWinnerDiv.style.display = 'flex';
+finalWinnerDiv.style.justifyContent = 'center';
+finalWinnerDiv.style.alignItems = 'center';
 const optionsDiv = document.querySelector(".options");
 console.log(optionsDiv);
 optionsDiv.before(finalWinnerDiv);

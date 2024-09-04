@@ -11,7 +11,7 @@ body {
 }
 
 .header {
-  background-color: grey;
+  background-color: darkslategray;
   height: 15dvh; 
   width: auto;
 }
@@ -81,7 +81,7 @@ button {
 }
 
 .footer {
-  background-color: darkgreen;
+  background-color: darkslategray;
   width: auto;
   height: 15dvh;
 }
