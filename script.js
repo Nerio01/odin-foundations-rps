@@ -4,9 +4,34 @@ const [rock, paper, scissors] = validHands;
 const [rockBtn, paperBtn, scissorsBtn] = Array.from(document.querySelectorAll("button"));
 
 rockBtn.addEventListener("click", () => playRound(rock));
-paperBtn.addEventListener("click", () => playRound(paper));
-scissorsBtn.addEventListener("click", () => playRound(scissors));
+rockBtn.addEventListener("mouseover", () => { 
+  rockBtn.style.border = 'solid 3px lightgreen';
+  rockBtn.style.color = 'lightgreen';
+});
+rockBtn.addEventListener("mouseout", () => {
+  rockBtn.style.border = 'solid 3px black';
+  rockBtn.style.color = 'white'
+});
 
+paperBtn.addEventListener("click", () => playRound(paper));
+paperBtn.addEventListener("mouseover", () => {
+  paperBtn.style.border = 'solid 3px lightgreen';
+  paperBtn.style.color = 'lightgreen';
+});
+paperBtn.addEventListener("mouseout", () => {
+  paperBtn.style.border = 'solid 3px black';
+  paperBtn.style.color = 'white';
+});
+
+scissorsBtn.addEventListener("click", () => playRound(scissors));
+scissorsBtn.addEventListener("mouseover", () => { 
+  scissorsBtn.style.border = 'solid 3px lightgreen';
+  scissorsBtn.style.color = 'lightgreen';
+});
+scissorsBtn.addEventListener("mouseout", () => {
+  scissorsBtn.style.border = 'solid 3px black';
+  scissorsBtn.style.color = 'white';
+});
 
 const generateHand = () => {
     function getRandomIntInclusive(min, max) {

@@ -42,19 +42,9 @@ button {
   color: whitesmoke;
   font-weight: 800;
   font-size: 20px;
+  background-color: grey;
 }
 
-#rock {
-  background-color: red;
-}
-
-#paper {
-  background-color: green;
-}
-
-#scissors {
-  background-color: blue;
-}
 
 .result-container {
   display: flex;
