@@ -8,6 +8,7 @@ body {
  height: 100dvh;
  justify-content: space-between;
  align-items: space-evenly;
+ background-color: darkslategray;
 }
 
 .header {
@@ -20,10 +21,15 @@ body {
  display: flex;
  justify-content: center;
  align-items: center;
- gap: 50px;
+ gap: 40px;
 }
 
 .score-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.winner-container {
   display: flex;
   flex-direction: column;
 }
@@ -37,7 +43,7 @@ body {
 button {
   width: 200px;
   height: 40px;
-  border: 3px solid black;
+  border: 1px solid whitesmoke;
   border-radius: 25px;
   color: whitesmoke;
   font-weight: 800;
@@ -45,27 +51,38 @@ button {
   background-color: grey;
 }
 
-
 .result-container {
   display: flex;
   justify-content: space-evenly;
-  gap: 20px;
+  gap: 15px;
   align-items: center; 
   background-color: gray;
   height: 6rem;
-  width: 40rem;
+  width: 44rem;
   align-self: center;
   border-radius: 25px;
   color: whitesmoke;
+  border: 1px solid white;
+}
+
+.player-score-text,
+.computer-score-text {
+  font-size: 20px;
 }
 
 .player-score,
 .computer-score {
   color: lightgreen;
+  font-size: 20px;
+  font-weight: 800px;
+}
+
+.winner-text {
+  font-size: 20px;
 }
 
 .winner {
-  font-size: 25px;
+  font-size: 35px;
   color: lightgreen;
   font-weight: 800;
 }

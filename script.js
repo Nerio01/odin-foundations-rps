@@ -2,35 +2,52 @@ const validHands = ['rock', 'paper', 'scissors'];
 const [rock, paper, scissors] = validHands; 
 
 const [rockBtn, paperBtn, scissorsBtn] = Array.from(document.querySelectorAll("button"));
+const resultContainer = document.querySelector('.result-container');
 
 rockBtn.addEventListener("click", () => playRound(rock));
-rockBtn.addEventListener("mouseover", () => { 
-  rockBtn.style.border = 'solid 3px lightgreen';
-  rockBtn.style.color = 'lightgreen';
+rockBtn.addEventListener("mousedown", () => { 
+  rockBtn.style.border = 'solid 1px white';
+  rockBtn.style.color = 'whitesmoke';
 });
-rockBtn.addEventListener("mouseout", () => {
-  rockBtn.style.border = 'solid 3px black';
-  rockBtn.style.color = 'white'
+rockBtn.addEventListener("mouseup", () => {
+  rockBtn.style.border = 'solid 1px lightgreen';
+  rockBtn.style.color = 'lightgreen';
 });
 
 paperBtn.addEventListener("click", () => playRound(paper));
-paperBtn.addEventListener("mouseover", () => {
-  paperBtn.style.border = 'solid 3px lightgreen';
-  paperBtn.style.color = 'lightgreen';
+paperBtn.addEventListener("mousedown", () => { 
+  paperBtn.style.border = 'solid 1px white';
+  paperBtn.style.color = 'whitesmoke';
 });
-paperBtn.addEventListener("mouseout", () => {
-  paperBtn.style.border = 'solid 3px black';
-  paperBtn.style.color = 'white';
+paperBtn.addEventListener("mouseup", () => {
+  paperBtn.style.border = 'solid 1px lightgreen';
+  paperBtn.style.color = 'lightgreen';
 });
 
 scissorsBtn.addEventListener("click", () => playRound(scissors));
-scissorsBtn.addEventListener("mouseover", () => { 
-  scissorsBtn.style.border = 'solid 3px lightgreen';
+scissorsBtn.addEventListener("mousedown", () => { 
+  scissorsBtn.style.border = 'solid 1px white';
+  scissorsBtn.style.color = 'whitesmoke';
+});
+scissorsBtn.addEventListener("mouseup", () => {
+  scissorsBtn.style.border = 'solid 1px lightgreen';
   scissorsBtn.style.color = 'lightgreen';
 });
-scissorsBtn.addEventListener("mouseout", () => {
-  scissorsBtn.style.border = 'solid 3px black';
-  scissorsBtn.style.color = 'white';
+
+
+const buttons = Array.from(document.querySelectorAll('button'));
+
+buttons.forEach((button) => {
+  button.addEventListener("mousedown", () => resultContainer.style.border = '1px solid lightgreen');
+  button.addEventListener("mouseup", () => resultContainer.style.border = '1px solid whitesmoke');
+  button.addEventListener("mouseover", () => { 
+  button.style.border = 'solid 1px lightgreen';
+  button.style.color = 'lightgreen';
+  });
+  button.addEventListener("mouseout", () => {
+  button.style.border = 'solid 1px white';
+  button.style.color = 'white';
+  });
 });
 
 const generateHand = () => {
@@ -103,7 +120,6 @@ finalWinnerDiv.style.display = 'flex';
 finalWinnerDiv.style.justifyContent = 'center';
 finalWinnerDiv.style.alignItems = 'center';
 const optionsDiv = document.querySelector(".options");
-console.log(optionsDiv);
 optionsDiv.before(finalWinnerDiv);
 
 const results = document.querySelector('.result-container');
