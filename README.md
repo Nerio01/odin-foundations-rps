@@ -1,4 +1,6 @@
-Originally just a **Rock-Paper-Scissors** project for browser console, now its a webpage with UI and buttons n stuff.   
+Originally just a **Rock-Paper-Scissors** project to be run from browser console. 
+
+Now a webpage with UI n buttons n stuff.   
 
 Built for practicing DOM manipulation as part of [The Odin Project]('theodinproject.com') curriculum.  
 
