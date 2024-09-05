@@ -1,3 +1,5 @@
+## ROCK-PAPER-SCISSORS
+
 Originally just a **Rock-Paper-Scissors** project to be run from browser console. 
 
 Now a webpage with UI n buttons n stuff.   
