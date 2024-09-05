@@ -36,7 +36,7 @@ To be heavily refactored in near future - yo boi got some ideas.
 
 - add basic info on how the game is player, number of rounds, ui controls to header and footer
 
-- unwind the spaggetti code from the single file into a proper module system with imports/exports
+- unwind the spaggetti code from the single file into a proper module system with imports/exports (yes I will do it last to never do it again)
 
 - ...
 
