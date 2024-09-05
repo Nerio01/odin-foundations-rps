@@ -12,9 +12,9 @@ To be heavily refactored in near future - yo boi got some ideas.
 
 ### Stuff to add: 
 
-- replace score numbers with * (of another mark symbol) to be appended for each victory.
-  Example:
-  **Now:**
+- replace score numbers with * (of another mark symbol) to be appended for each victory.  
+  Example:  
+  **Now:**  
    ```
   Player: 5
   Computer: 3
