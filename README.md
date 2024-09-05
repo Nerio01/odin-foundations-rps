@@ -8,7 +8,7 @@ Currenty barebones and ugly. But hey, it works.
 
 To be heavily refactored in near future - yo boi got some ideas.   
 
-Stuff to add: 
+### Stuff to add: 
 
 - replace score numbers with * (of another mark symbol) to be appended for each victory.
   Example:
