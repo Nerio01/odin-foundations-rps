@@ -22,8 +22,8 @@ Stuff to add:
   Player | Computer
   *****  | ***
   ```
-  ...or something similar.
-  I can make the number themselves flash on score change as well, something to consider I guess.
+  ...or something similar.  
+  I can make the number themselves flash on score change as well, something to consider I guess.  
   The goal is to make score change more visually apparent for the player.
   
 - make a simple graphical representation of selected hands for each round played
