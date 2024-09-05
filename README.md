@@ -28,7 +28,7 @@ To be heavily refactored in near future - yo boi got some ideas.
   I can make the number themselves flash on score change as well, something to consider I guess.  
   The goal is to make score change more visually apparent for the player.
   
-- make a simple graphical representation of selected hands for each round played
+- make a simple graphical representation of selected hands for each round played. To be displayed in the `<div>` between buttons and result-container 
   
 - make borders of pressed button and results-container flash green (on user win), yellow (on draw) or red (on computer win) depending on result of the round
   
