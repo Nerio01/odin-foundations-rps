@@ -93,7 +93,7 @@ const dynamicPopupContainer = document.createElement("div");
 
 const styleAsWinnerDiv = (element) => {
   element.classList.add('added');
-  element.style.height = '100px';
+  element.style.height = '50px';
   element.style.width = '400px';
   element.style.borderRadius = '25px';
   element.style.color = 'lightgreen';
@@ -130,6 +130,7 @@ const results = document.querySelector('.result-container');
 const resetAfterVictory = () => {
   if (currentScore.player >= 5 || currentScore.computer >= 5) {
     resetScore();
+    dynamicPopupContainer.style = 0;
     dynamicPopupContainer.style.visibility = 'hidden';
   }
 };
@@ -161,7 +162,6 @@ const displayRoundResult = (usrHand, compHand, win) => {
 
 const playRound = (userhand) => {
     resetAfterVictory();
-    dynamicPopupContainer.style = 0;
     const humanSelection = userhand;
     const computerSelection = generateHand();
     const roundWinner = compareHands(humanSelection, computerSelection); 
