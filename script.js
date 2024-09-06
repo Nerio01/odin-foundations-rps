@@ -88,30 +88,30 @@ const updateBoardScore = () => {
   computerScore.textContent = currentScore.computer;
 }
 
-const finalWinnerDiv = document.createElement("div");
-finalWinnerDiv.classList.add('added');
-console.log(finalWinnerDiv);
-finalWinnerDiv.style.height = '100px';
-finalWinnerDiv.style.width = '400px';
-finalWinnerDiv.style.borderRadius = '25px';
-finalWinnerDiv.style.color = 'lightgreen';
-finalWinnerDiv.style.backgroundColor = 'red';
-finalWinnerDiv.style.alignSelf = 'center';
-finalWinnerDiv.style.visibility = 'hidden';
-finalWinnerDiv.style.fontSize = '30px';
-finalWinnerDiv.style.display = 'flex';
-finalWinnerDiv.style.justifyContent = 'center';
-finalWinnerDiv.style.alignItems = 'center';
-
+const dynamicPopupContainer = document.createElement("div");
+const styleAsWinnerDiv = (element) => {
+  element.classList.add('added');
+  element.style.height = '100px';
+  element.style.width = '400px';
+  element.style.borderRadius = '25px';
+  element.style.color = 'lightgreen';
+  element.style.backgroundColor = 'red';
+  element.style.alignSelf = 'center';
+  element.style.visibility = 'hidden';
+  element.style.fontSize = '30px';
+  element.style.display = 'flex';
+  element.style.justifyContent = 'center';
+  element.style.alignItems = 'center';
+};
 const optionsDiv = document.querySelector(".options");
-optionsDiv.before(finalWinnerDiv);
+optionsDiv.before(dynamicPopupContainer);
 
 const results = document.querySelector('.result-container');
 
 const resetAfterVictory = () => {
   if (currentScore.player >= 5 || currentScore.computer >= 5) {
     resetScore();
-    finalWinnerDiv.style.visibility = 'hidden';
+    dynamicPopupContainer.style.visibility = 'hidden';
   }
 }
 
@@ -123,12 +123,14 @@ const playRound = (userhand) => {
     const output = document.querySelector('.winner');
     updateScore(roundWinner);
     if (currentScore.player >= 5) {
-      finalWinnerDiv.textContent = 'Player Won The Game!';
-      finalWinnerDiv.style.visibility = 'visible'
+      styleAsWinnerDiv(dynamicPopupContainer);
+      dynamicPopupContainer.textContent = 'Player Won The Game!';
+      dynamicPopupContainer.style.visibility = 'visible'
     }
     if (currentScore.computer >= 5) {
-      finalWinnerDiv.textContent = 'Computer Won The Game!';
-      finalWinnerDiv.style.visibility = 'visible'
+      styleAsWinnerDiv(dynamicPopupContainer);
+      dynamicPopupContainer.textContent = 'Computer Won The Game!';
+      dynamicPopupContainer.style.visibility = 'visible'
     }
     updateBoardScore();
     output.textContent = roundWinner;
