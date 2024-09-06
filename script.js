@@ -89,6 +89,8 @@ const updateBoardScore = () => {
 }
 
 const dynamicPopupContainer = document.createElement("div");
+
+
 const styleAsWinnerDiv = (element) => {
   element.classList.add('added');
   element.style.height = '100px';
@@ -103,6 +105,23 @@ const styleAsWinnerDiv = (element) => {
   element.style.justifyContent = 'center';
   element.style.alignItems = 'center';
 };
+
+const styleAsRoundResult = (element) => {
+  element.classList.add('added');
+  element.style.heigth = "400px";
+  element.style.width = "700px";
+  element.style.borderRadius = '20px';
+  element.style.color = 'lightgreen';
+  element.backgroundColor = 'lightgray';
+  element.style.alignSelf = 'center';
+  element.style.justifyContent = 'center';
+  element.style.fontSize = '30px';
+  element.style.display = 'flex';
+  element.style.alignItems = 'center';
+  element.style.visibility = 'hidden';
+};
+
+
 const optionsDiv = document.querySelector(".options");
 optionsDiv.before(dynamicPopupContainer);
 
@@ -113,15 +132,43 @@ const resetAfterVictory = () => {
     resetScore();
     dynamicPopupContainer.style.visibility = 'hidden';
   }
-}
+};
+
+const displayRoundResult = (usrHand, compHand, win) => {
+  if (win === 'computer') {
+    styleAsRoundResult(dynamicPopupContainer);
+    dynamicPopupContainer.textContent = 
+      `Computer wins this round!
+    ${compHand} beats ${usrHand}! 
+    `
+    dynamicPopupContainer.style.visibility = 'visible';
+  }
+  if (win === 'user'){
+    styleAsRoundResult(dynamicPopupContainer);
+    dynamicPopupContainer.textContent = 
+      `Player wins this round!
+    ${usrHand} beats ${compHand}! 
+    `
+    dynamicPopupContainer.style.visibility = 'visible';
+  }
+  if (win === 'draw'){
+    styleAsRoundResult(dynamicPopupContainer);
+    dynamicPopupContainer.textContent = 
+      `This round ends with draw!`
+    dynamicPopupContainer.style.visibility = 'visible';
+  }
+};
 
 const playRound = (userhand) => {
     resetAfterVictory();
+    dynamicPopupContainer.style = 0;
     const humanSelection = userhand;
     const computerSelection = generateHand();
     const roundWinner = compareHands(humanSelection, computerSelection); 
     const output = document.querySelector('.winner');
     updateScore(roundWinner);
+    updateBoardScore();
+    displayRoundResult(humanSelection, computerSelection, roundWinner);
     if (currentScore.player >= 5) {
       styleAsWinnerDiv(dynamicPopupContainer);
       dynamicPopupContainer.textContent = 'Player Won The Game!';
@@ -132,8 +179,7 @@ const playRound = (userhand) => {
       dynamicPopupContainer.textContent = 'Computer Won The Game!';
       dynamicPopupContainer.style.visibility = 'visible'
     }
-    updateBoardScore();
     output.textContent = roundWinner;
     return roundWinner;
-}
+};
 
