@@ -117,7 +117,7 @@ const styleAsRoundResult = (element) => {
   element.backgroundColor = 'rgba(255 255 255 0.1)';
   element.style.alignSelf = 'center';
   element.style.justifyContent = 'center';
-  element.style.fontSize = '30px';
+  element.style.fontSize = '40px';
   element.style.display = 'flex';
   element.style.alignItems = 'center';
   element.style.visibility = 'hidden';

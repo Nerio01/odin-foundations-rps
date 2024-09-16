@@ -9,14 +9,22 @@ body {
  justify-content: space-between;
  align-items: space-evenly;
  background-color: black;
+ font-family: 'Handjet', sans-serif;
 }
 
 .header {
   background-color: rgba(255,255,255, 0.1);
-  border-bottom-style: ridge;
-  border-color: whitesmoke;
+  border-bottom-style: dotted;
+  border-color: lightgreen;
   height: 15dvh; 
   width: auto;
+  color: lightgreen;
+  font-size: 6px;
+  text-align: center;
+  vertical-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .options {
@@ -49,8 +57,9 @@ button {
   border-radius: 25px;
   color: whitesmoke;
   font-weight: 800;
-  font-size: 20px;
+  font-size: 30px;
   background-color: rgba(255,255,255, 0.0);
+  font-family: 'Handjet';
 }
 
 .result-container {
@@ -69,22 +78,22 @@ button {
 
 .player-score-text,
 .computer-score-text {
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .player-score,
 .computer-score {
   color: lightgreen;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 800px;
 }
 
 .winner-text {
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .winner {
-  font-size: 35px;
+  font-size: 45px;
   color: lightgreen;
   font-weight: 800;
 }
@@ -94,6 +103,6 @@ button {
   width: auto;
   height: 15dvh;
   background-color: rgba(255,255,255, 0.1);
-  border-top-style: ridge;
-  border-color: whitesmoke;
+  border-top-style: dotted;
+  border-color: lightgreen;
 }
