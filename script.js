@@ -92,7 +92,6 @@ const updateBoardScore = () => {
 
 const dynamicPopupContainer = document.createElement("div");
 
-
 const styleAsWinnerDiv = (element) => {
   element.classList.add('added');
   element.style.height = '50px';
@@ -175,7 +174,7 @@ const playRound = (userhand) => {
       styleAsWinnerDiv(dynamicPopupContainer);
       dynamicPopupContainer.style.color = 'lightgreen';
       dynamicPopupContainer.textContent = 'Player Won The Game!';
-      dynamicPopupContainer.style.visibility = 'visible'
+      dynamicPopupContainer.style.visibility = 'visible';
     }
     if (currentScore.computer >= 5) {
       styleAsWinnerDiv(dynamicPopupContainer);
