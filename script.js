@@ -97,7 +97,7 @@ const styleAsWinnerDiv = (element) => {
   element.style.width = '400px';
   element.style.borderRadius = '25px';
   element.style.color = 'lightgreen';
-  element.style.backgroundColor = 'red';
+  element.style.backgroundColor = 'darkgrey';
   element.style.alignSelf = 'center';
   element.style.visibility = 'hidden';
   element.style.fontSize = '30px';
@@ -171,13 +171,17 @@ const playRound = (userhand) => {
     displayRoundResult(humanSelection, computerSelection, roundWinner);
     if (currentScore.player >= 5) {
       styleAsWinnerDiv(dynamicPopupContainer);
+      dynamicPopupContainer.style.color = 'lightgreen';
+      dynamicPopupContainer.style.backgroundColor = 'grey';
       dynamicPopupContainer.textContent = 'Player Won The Game!';
       dynamicPopupContainer.style.visibility = 'visible'
     }
     if (currentScore.computer >= 5) {
       styleAsWinnerDiv(dynamicPopupContainer);
+      dynamicPopupContainer.style.color = 'red';
+      dynamicPopupContainer.style.backgroundColor = 'lightgray';
       dynamicPopupContainer.textContent = 'Computer Won The Game!';
-      dynamicPopupContainer.style.visibility = 'visible'
+      dynamicPopupContainer.style.visibility = 'visible';
     }
     output.textContent = roundWinner;
     return roundWinner;
