@@ -67,6 +67,7 @@ const compareHands = (userHand, compHand) => {
 const currentScore = {
   player: 0,
   computer: 0,
+  draws: 0,
 }
 
 const updateScore = (roundWinner) => {
@@ -76,18 +77,24 @@ const updateScore = (roundWinner) => {
   if (roundWinner === 'user') {
     currentScore.player += 1;
   }
+  if (roundWinner === 'draw') {
+    currentScore.draws += 1;
+  }
 }
 
 const resetScore = () => {
   currentScore.player = 0;
-  currentScore.computer = 0;  
+  currentScore.computer = 0;
+  currentScore.draws = 0;
 }
 
 const updateBoardScore = () => {
   const playerScore = document.querySelector('div .player-score');
   const computerScore = document.querySelector('div .computer-score');
+  const drawScore = document.querySelector('div .draw-score');
   playerScore.textContent = currentScore.player;
   computerScore.textContent = currentScore.computer;
+  drawScore.textContent = currentScore.draws;
 }
 
 const dynamicPopupContainer = document.createElement("div");
@@ -173,12 +180,14 @@ const playRound = (userhand) => {
     if (currentScore.player >= 5) {
       styleAsWinnerDiv(dynamicPopupContainer);
       dynamicPopupContainer.style.color = 'lightgreen';
+      dynamicPopupContainer.style.fontSize = '45px';
       dynamicPopupContainer.textContent = 'Player Won The Game!';
       dynamicPopupContainer.style.visibility = 'visible';
     }
     if (currentScore.computer >= 5) {
       styleAsWinnerDiv(dynamicPopupContainer);
       dynamicPopupContainer.style.color = 'red';
+      dynamicPopupContainer.style.fontSize = '45px';
       dynamicPopupContainer.textContent = 'Computer Won The Game!';
       dynamicPopupContainer.style.visibility = 'visible';
     }
