@@ -8,11 +8,13 @@ body {
  height: 100dvh;
  justify-content: space-between;
  align-items: space-evenly;
- background-color: darkslategray;
+ background-color: black;
 }
 
 .header {
-  background-color: darkslategray;
+  background-color: rgba(255,255,255, 0.1);
+  border-bottom-style: ridge;
+  border-color: whitesmoke;
   height: 15dvh; 
   width: auto;
 }
@@ -48,7 +50,7 @@ button {
   color: whitesmoke;
   font-weight: 800;
   font-size: 20px;
-  background-color: grey;
+  background-color: rgba(255,255,255, 0.0);
 }
 
 .result-container {
@@ -56,7 +58,7 @@ button {
   justify-content: space-evenly;
   gap: 15px;
   align-items: center; 
-  background-color: gray;
+  background-color: rbga(255, 255, 255, 0.0);
   height: 6rem;
   width: 42rem;
   align-self: center;
@@ -88,7 +90,10 @@ button {
 }
 
 .footer {
-  background-color: darkslategray;
+  background-color: darkslaterbga(255, 255, 255, 0.0);
   width: auto;
   height: 15dvh;
+  background-color: rgba(255,255,255, 0.1);
+  border-top-style: ridge;
+  border-color: whitesmoke;
 }

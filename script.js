@@ -97,7 +97,7 @@ const styleAsWinnerDiv = (element) => {
   element.style.width = '400px';
   element.style.borderRadius = '25px';
   element.style.color = 'lightgreen';
-  element.style.backgroundColor = 'darkgrey';
+  element.style.backgroundColor = 'black';
   element.style.alignSelf = 'center';
   element.style.visibility = 'hidden';
   element.style.fontSize = '30px';
@@ -112,7 +112,7 @@ const styleAsRoundResult = (element) => {
   element.style.width = "700px";
   element.style.borderRadius = '20px';
   element.style.color = 'lightgreen';
-  element.backgroundColor = 'lightgray';
+  element.backgroundColor = 'rgba(255 255 255 0.1)';
   element.style.alignSelf = 'center';
   element.style.justifyContent = 'center';
   element.style.fontSize = '30px';
@@ -172,14 +172,12 @@ const playRound = (userhand) => {
     if (currentScore.player >= 5) {
       styleAsWinnerDiv(dynamicPopupContainer);
       dynamicPopupContainer.style.color = 'lightgreen';
-      dynamicPopupContainer.style.backgroundColor = 'grey';
       dynamicPopupContainer.textContent = 'Player Won The Game!';
       dynamicPopupContainer.style.visibility = 'visible'
     }
     if (currentScore.computer >= 5) {
       styleAsWinnerDiv(dynamicPopupContainer);
       dynamicPopupContainer.style.color = 'red';
-      dynamicPopupContainer.style.backgroundColor = 'lightgray';
       dynamicPopupContainer.textContent = 'Computer Won The Game!';
       dynamicPopupContainer.style.visibility = 'visible';
     }
