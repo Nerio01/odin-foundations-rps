@@ -40,24 +40,26 @@ const generateHand = () => {
     return validHands[getRandomIntInclusive(0,2)];
 };
 
-const compareHands = (userHand, compHand) => {
-
-    let winner = '';
-
-    switch (true) {
-        case ((userHand === rock) && (compHand === scissors)):
-        case ((userHand === paper) && (compHand === rock)):
-        case ((userHand === scissors) && (compHand === paper)):
-            winner = 'user';
-            break;
-        case ((userHand === rock) && (compHand === paper)):
-        case ((userHand === paper) && (compHand === scissors)):
-        case ((userHand === scissors) && (compHand === rock)):
-            winner = 'computer';
-            break;
-        default:
-            return 'draw';
-    }
+const compareHands = (userHand, compHand) => { 
+  let winner = '';
+  const winnerText = document.querySelector('.winner');
+  switch (true) {
+      case ((userHand === rock) && (compHand === scissors)):
+      case ((userHand === paper) && (compHand === rock)):
+      case ((userHand === scissors) && (compHand === paper)):
+          winner = 'user';
+          winnerText.style.color = 'lightgreen';
+          break;
+      case ((userHand === rock) && (compHand === paper)):
+      case ((userHand === paper) && (compHand === scissors)):
+      case ((userHand === scissors) && (compHand === rock)):
+          winner = 'computer';
+          winnerText.style.color = 'red';
+          break;
+      default:
+          winnerText.style.color = 'yellow';
+          return 'draw';
+  }
 
     return winner;
 };
